@@ -7,9 +7,6 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../keys");
 const requireLogin = require("../middleware/requireLogin");
 
-router.get("/protected", requireLogin, (req, res) => {
-  res.send("hello user");
-});
 
 router.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
@@ -19,9 +16,7 @@ router.post("/signup", (req, res) => {
   User.findOne({ email: email })
     .then((savedUser) => {
       if (savedUser) {
-        return res
-          .status(422)
-          .json({ error: "user already exist with that email" });
+        return res.status(422).json({ error: "user already exist with that email" });
       }
 
       bcrypt.hash(password, 12).then((hashedpassword) => {
