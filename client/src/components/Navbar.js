@@ -10,6 +10,7 @@ const NavBar = () => {
         <li><Link to="/signin" style={{color:"black"}}>Signin</Link></li>
         <li><Link to="/signup" style={{color:"black"}}>Signup</Link></li>
         <li><Link to="/profile" style={{color:"black"}}>Profile</Link></li>
+        <li><Link to="/create" style={{color:"black"}}>Create post</Link></li>
       </ul>
     </div>
   </nav>
