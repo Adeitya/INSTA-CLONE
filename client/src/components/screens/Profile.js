@@ -18,7 +18,7 @@ const Profile = () => {
           />
         </div>
         <div>
-          <h4>Tasya</h4>
+          <h4>Mrunal</h4>
           <div style={{display:"flex", justifyContent:"space-between",width:"108%"}}>
               <h5>10 posts</h5>
               <h5>10 followers</h5>
