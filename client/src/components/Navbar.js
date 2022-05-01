@@ -19,7 +19,7 @@ const NavBar = () => {
             dispatch({type:"CLEAR"})
             navigate("/signin")
           }}>
-          Logout
+          LOGOUT
           </button>
         </li>
       ]
