@@ -17,15 +17,29 @@ const NavBar = () => {
     {
       return [
         <li key="1">
-          <i data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>
+          <i data-target="modal1" className="large material-icons modal-trigger" 
+          style={{color:"black",marginRight:"10px",cursor:"pointer"}}
+          >
           search
           </i>
         </li>,
-        <li key="2"><Link to="/profile" style={{color:"black"}}>Profile</Link></li>,
-        <li key="3"><Link to="/create" style={{color:"black"}}>Create post</Link></li>,
-        <li key="4"><Link to="/myfollowingpost" style={{color:"black"}}>My following Posts</Link></li>,
+        <li key="2">
+          <Link to="/myfollowingpost" style={{color:"black"}}>
+          <i className="material-icons" style={{ color: "black" }}> explore </i>
+          </Link>
+        </li>,
+        <li key="3">
+          <Link to="/create" style={{color:"black"}}>
+          <i className="material-icons" style={{ color: "black" }}> add_box </i>
+          </Link>
+        </li>,
+        <li key="4">
+          <Link to="/profile" style={{color:"black"}}>
+          <i className="material-icons" style={{ color: "black" }}> perm_identity </i>
+          </Link>
+        </li>,
         <li key="5">
-          <button className="btn waves-effect waves-light #64b5f6 blue darken-2"
+          <button className="btn waves-effect waves-light #64b5f6 blue darken-2" style={{marginRight:"2px"}}
           onClick={()=>{
             localStorage.clear()
             dispatch({type:"CLEAR"})
@@ -66,7 +80,7 @@ const NavBar = () => {
   return (
   <nav>
     <div className="nav-wrapper white">
-      <Link to={state? "/" : "/signin"} className="brand-logo left" style={{color:"black"}}>Instagram</Link>
+      <Link to={state? "/" : "/signin"} className="brand-logo left" style={{color:"black", marginLeft:"2px"}}>Instagram</Link>
       <ul id="nav-mobile" className="right">
         {renderList()}
       </ul>
@@ -98,7 +112,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="modal-footer">
-        <button className="modal-close waves-effect waves-green btn-flat" onClick={()=>setSearch('')}>close</button>
+        <button className="modal-close waves-effect waves-blue btn-flat" onClick={()=>setSearch('')}>close</button>
       </div>
     </div>
   </nav>

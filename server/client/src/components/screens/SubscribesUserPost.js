@@ -7,7 +7,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
-    fetch("/allpost", {
+    fetch("/getsubpost", {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("jwt"),
       },
@@ -169,18 +169,15 @@ const Home = () => {
               <img style={{padding:"5px", borderRadius:"5px"}} src={item.photo} />
             </div>
             <div className="card-content">
-              <i className="material-icons" style={{ color: "red" }}>
-                favorite
-              </i>
-
+              
               {item.likes.includes(state._id) ? (
                 <i
-                  className="material-icons"
+                  className="material-icons" style={{ color: "red" }}
                   onClick={() => {
                     unlikePost(item._id);
                   }}
                 >
-                  thumb_down
+                  favorite
                 </i>
               ) : (
                 <i
@@ -189,7 +186,7 @@ const Home = () => {
                     likePost(item._id);
                   }}
                 >
-                  thumb_up
+                  favorite_border
                 </i>
               )}
 

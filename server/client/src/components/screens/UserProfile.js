@@ -102,7 +102,22 @@ const Profile = () => {
               />
             </div>
             <div>
-              <h4>{userProfile.user.name}</h4>
+              <h4>
+                {userProfile.user.name}
+                {showfollow?
+                  <button style={{margin:"10px", marginLeft:"10px"}}
+                    className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                    onClick={()=>followUser()}>
+                      Follow
+                  </button>
+                  :
+                  <button style={{margin:"10px", marginLeft:"10px"}}
+                    className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                    onClick={()=>unfollowUser()}>
+                      Unfollow
+                  </button>
+                }
+              </h4>
               <div
                 style={{
                   display: "flex",
@@ -110,23 +125,10 @@ const Profile = () => {
                   width: "108%",
                 }}
               >
-                <h5>{userProfile.posts.length} posts</h5>
-                <h5>{userProfile.user.followers.length} followers</h5>
-                <h5>{userProfile.user.following.length} following</h5>
+                <h5>{userProfile.posts.length}</h5><h5 style={{color:"grey"}}>posts</h5>
+                <h5>{userProfile.user.followers.length}</h5><h5 style={{color:"grey"}}>followers</h5>
+                <h5>{userProfile.user.following.length}</h5><h5 style={{color:"grey"}}>following</h5>
               </div>
-              {showfollow?
-               <button style={{margin:"10px"}}
-                className="btn waves-effect waves-light #64b5f6 blue darken-1"
-                onClick={()=>followUser()}>
-                  Follow
-               </button>
-               :
-               <button style={{margin:"10px"}}
-                className="btn waves-effect waves-light #64b5f6 blue darken-1"
-                onClick={()=>unfollowUser()}>
-                  Unfollow
-               </button>
-              }
             </div>
           </div>
 
@@ -144,7 +146,7 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        <h2>loading...!</h2>
+        <h2 style={{textAlign:"center", marginTop:"300px"}}>loading...!</h2>
       )}
     </>
   );
